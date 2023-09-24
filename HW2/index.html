@@ -1,0 +1,234 @@
+<!-- style reference site: https://oceans-nadia.com/user/24309/recipe/447155-->
+<!-- content reference site: https://home.meishichina.com/recipe-345832.html-->
+<!-- Use some extent of styling to make website look not not plain. 
+  If the prompt requires pure html I'll remove all the styling-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Braised Pork Rice</title>
+  <style>
+    body {
+      font-size: 16px;
+      background-color: #F1EBE2;
+      font-family: 'Helvetica', Arial, sans-serif;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2em;
+    }
+
+    h3 {
+      font-size: 1.5em;
+    }
+
+    p {
+      font-size: 1em;
+    }
+
+    li {
+      font-size: 1.2em;
+    }
+
+    /* Use to create some space on left and right sides of the page */
+    .main-container {
+      width: 50%;
+      margin: 0 auto;
+      background-color: #fafafa;
+      padding: 20px;
+
+    }
+
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 75%;
+    }
+
+    .ingredients-box {
+      border: 1px solid #000;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .ingredients-list {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+    }
+
+    .ingredient-item {
+      width: 25%;
+      box-sizing: border-box;
+      padding: 5px;
+    }
+
+    .step-container {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .step-text {
+      flex: 0 0 70%;
+      margin-right: 20px;
+    }
+
+    .step-image img {
+      width: 100%;
+      float: right; 
+      }
+
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="main-container">
+    <h1>Braised Pork Rice</h1>
+    <img class="center"
+      src="img/FinalProduct.jpg" alt="Braise Pork Rice"
+      title="Braise Pork Rice" width="100%" />
+    <hr />
+    <p>
+        Braised pork rice is a quintessential dish in Chinese cuisine, 
+        made with a tantalizing blend of ground pork, quail eggs, and fluffy rice. 
+        The dish strikes a fine balance of richness without being greasy, 
+        delivering flavors that are both sweet and salty. Its key highlight is the braised pork,
+        which marries perfectly with the steamed rice. 
+        The rice not only complements the meat but also soaks up the delectable,
+        dark red sauce, creating a harmonious dish that's bursting with aroma and flavor.
+    </p>
+    <hr />
+    <!-- I tried to tinker with unordered list and kinda force them into a matrix form but failed miserably -->
+    <!-- So I just played around with divs and classes to make the box. There is definitely a more elegant way-->
+    <!-- TODO: have the "amount" below the ingredient, just like the reference site -->
+    <h2>Ingredients</h2>
+    <div class="ingredients-box">
+      <h3>Main Ingredients</h3>
+      <div class="ingredients-list">
+        <div class="ingredient-item">Pork belly/ mince: 400g</div>
+        <div class="ingredient-item">Fried shallots: 50g</div>
+        <div class="ingredient-item">Shiitake mushrooms: 7 pieces</div>
+        <div class="ingredient-item">Eggs: 5 pieces</div>
+      </div>
+    </div>
+    <div class="ingredients-box">
+      <h3>Seasoning</h3>
+      <div class="ingredients-list">
+        <div class="ingredient-item">Star anise: 1 piece</div>
+        <div class="ingredient-item">Rock sugar: 1 piece</div>
+        <div class="ingredient-item">Ginger: 5 slices</div>
+        <div class="ingredient-item">Water: 1 cup</div>
+        <div class="ingredient-item">Salad oil: 2 tablespoons</div>
+        <div class="ingredient-item">Rice wine: 2 tablespoons</div>
+        <div class="ingredient-item">Soy sauce: 3 tablespoons</div>
+        <div class="ingredient-item">Dark soy sauce: 1 tablespoon</div>
+        <div class="ingredient-item">Salt: 1/2 teaspoon</div>
+        <div class="ingredient-item">Five-spice powder: Appropriate amount</div>
+        <div class="ingredient-item">White pepper powder: Appropriate amount</div>
+      </div>
+    </div>
+    <hr />
+    <h2>Steps</h2>
+    <ol>
+      <!-- It seems I don't really need clearfix? A little confused here -->
+      <!-- TODO: Make the list style more like the reference site. Might have to research a bit-->
+      <div class="step-container clearfix">
+        <div class="step-text">
+          <li>Place the eggs in cold water in a pot. Once the water boils, cook for 3 minutes and turn off the heat.
+          </li>
+        </div>
+        <div class="step-image"><img src="img/step1.jpg" alt="Step Image"></div>
+      </div>
+      <hr />
+      <div class="step-container">
+        <div class="step-text">
+          <li>Simmer for 7 minutes, then remove and immerse in cold water to cool. Peel the shells once cooled. The yolk
+            will be soft and flavorful, not overly dense.</li>
+        </div>
+        <div class="step-image"><img src="img/step2.jpg" alt="Step Image"></div>
+      </div>
+      <hr />
+      <div class="step-container">
+        <div class="step-text">
+          <li>Use pork mince or remove the skin from the pork belly and cut into dices no larger than 1 cm.</li>
+        </div>
+        <div class="step-image"><img src="img/step3.jpg" alt="Step Image"></div>
+      </div>
+      <hr />
+      <div class="step-container">
+        <div class="step-text">
+          <li>Cut the fresh shiitake mushrooms into dices of the same size as the pork mince.</li>
+        </div>
+        <div class="step-image"><img src="img/step4.jpg" alt="Step Image"></div>
+      </div>
+      <hr />
+      <div class="step-container">
+        <div class="step-text">
+          <li>Slice the ginger.</li>
+        </div>
+        <div class="step-image"><img src="img/step5.jpg" alt="Step Image"></div>
+      </div>
+      <hr />
+      <div class="step-container">
+        <div class="step-text">
+          <li>Heat a pot and add oil. Fry the mushrooms for two minutes. Put them into a plate for later use.</li>
+        </div>
+        <div class="step-image"><img src="img/step6.jpg" alt="Step Image"></div>
+      </div>
+      <hr />
+      <div class="step-container">
+        <div class="step-text">
+          <li>Add oil, slices of giner, and pork mince. Cook until pork is tender</li>
+        </div>
+        <div class="step-image"><img src="img/step7.jpg" alt="Step Image"></div>
+      </div>
+      <hr />
+      <div class="step-container">
+        <div class="step-text">
+          <li>Add soy sauce, dark soy sauce, rice wine, and water. Cook over medium heat.</li>
+        </div>
+        <div class="step-image"><img src="img/step8.jpg" alt="Step Image"></div>
+      </div>
+      <hr />
+      <div class="step-container">
+        <div class="step-text">
+          <li>Add the rock sugar, five-spice powder, white pepper powder, and salt. Cook over low heat until the pork
+            belly becomes tender.</li>
+        </div>
+        <div class="step-image"><img src="img/step9.jpg" alt="Step Image"></div>
+      </div>
+      <hr />
+      <div class="step-container">
+        <div class="step-text">
+          <li>Add the boiled eggs and cook until they absorb the flavors.</li>
+        </div>
+        <div class="step-image"><img src="img/step10.jpg" alt="Step Image"></div>
+      </div>
+      <hr />
+      <div class="step-container">
+        <div class="step-text">
+          <li>When everything is well-cooked, it's time to serve it over steamed rice.</li>
+        </div>
+        <div class="step-image"><img src="img/step11.jpg" alt="Step Image"></div>
+      </div>
+    </ol>
+  </div>
+</body>
+
+</html>

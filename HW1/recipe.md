@@ -1,5 +1,7 @@
  # Braised Pork Rice Recipe 
 
+**Note: I couldn't find the original site that I was getting the recipe from so I'll combine the content on this markdown and another site https://home.meishichina.com/recipe-345832.html for the content future assignments. Sorry for confusion!**
+
 **Introduction**:  
 Braised pork rice is a traditional Taiwan dish. The main ingredients are pork belly, quail eggs, rice, etc. It's rich but not greasy, with a sweet and salty taste, and bursting with aroma. The thick braised pork, paired with perfectly steamed rice — neither too soft nor too hard — ensures every grain of rice is soaked in the dark red sauce. Sugar and fat, the dynamic duo! Every spoonful of Braised Pork Rice, bursting with these flavors, is like a party for your taste buds. Dive into this easy yet irresistibly delicious recipe!  
 <img src="https://github.com/NYUMarioYang/WebDevFall23/assets/144243031/5b86477b-5589-4cb2-9bfc-fe386e4f384e" width="300" alt="Braised Pork Rice Image">  

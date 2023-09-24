@@ -1,0 +1,207 @@
+body {
+  font-size: 16px;
+  background-color: #F1EBE2;
+  font-family: 'Helvetica', Arial, sans-serif;
+  color: #59340A;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2.5em;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+p {
+  font-size: 1em;
+}
+
+.master-container {
+  display: flex;
+}
+
+/* Use to create some space on left and right sides of the page */
+/* leave 20px of space on top */
+.content-container {
+  width: 50%;
+  margin: 0 auto;
+  background-color: #fafafa;
+  padding: 20px;
+  padding-top: 60px;
+
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
+
+.ingredients-box {
+  border: 1px solid #000;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.ingredients-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.ingredient-item {
+  width: 25%;
+  box-sizing: border-box;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  /* I want to stack name and amount vertically */
+  justify-content: space-between;
+}
+
+.ingredient-name {
+  font-weight: bold;
+  text-align: center;
+}
+
+.ingredient-amount {
+  color: #888;
+  text-align: center;
+}
+
+.step-container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+/* learned counter-reset and counter(li) tricks from https://www.w3schools.com/cssref/pr_gen_counter-reset.php#:~:text=Definition%20and%20Usage,property%20and%20the%20content%20property. */
+.step-list {
+  list-style: none;
+  counter-reset: li;
+}
+
+.step-list li {
+  position: relative;
+  font-size: 1.2em;
+  padding-left: 2em;
+  margin-bottom: 1em;
+}
+
+/* before the content of the element */
+.step-list li:before {
+  content: counter(li);  /* Use the counter as content */
+  counter-increment: li;  /* Increment the counter by 1 */
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  background-color: #59340A;
+  border: 2px solid #59340A;
+  border-radius: 20%; /* Round the corners just like refernce site*/
+  width: 1.2em;
+  height: 1.2em;
+  text-align: center;
+  font-size: 0.9em;
+  line-height: 1.2em;
+  color: #FFFFFF;
+}
+
+
+.step-text {
+  flex: 0 0 70%;
+  margin-right: 20px;
+}
+
+.step-image img {
+  width: 100%;
+  float: right;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+fieldset.ingredients-box {
+  border: 2px solid #FFC500;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+legend {
+  padding: 0 10px;
+  font-weight: bold;
+  border: 1px solid#FFC500;
+  padding: 5px;
+  border-radius: 4px;
+  background-color: #FFC500;
+}
+
+/* Navbar Styles */
+/* Used class example and made modifications */
+.nav-ul {
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #59340A;
+  font-size: 0;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  top: 0; 
+  z-index: 1; 
+}
+
+.nav-li {
+  display: inline-block;
+  font-size: 1rem;
+}
+
+.nav-li a {
+  display: block;
+  text-align: center;
+  width: 100px;
+  padding: 20px;
+  text-decoration: none;
+  color: #FFF;
+}
+
+.nav-li a:hover {
+  background-color: #320A00;
+  color: #FFC200;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 80px;
+  background-color: #333;
+  height: 100vh;
+  overflow-y: auto;
+  position: fixed;
+  top: 76px; 
+}
+
+.sidebar a {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  font-size: 1.5em;
+}
+
+.sidebar a:hover {
+  background-color: #555;
+}
