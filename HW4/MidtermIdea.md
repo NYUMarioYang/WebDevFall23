@@ -1,4 +1,10 @@
-**Main Pages**
+**Idea: Create a website for work showcase and comission submission**
+![Alt text](Images/gura.gif)
+* Live2D: A software that allows 2D models to be animated in real time. Its core is the combination a proprietary file and a json file that defines animations.
+* Hence the website will have less work but hopefully interactive
+
+
+**Site Architecture**
 ![Alt text](Images/website1.png)
 * Personal Bio & Contact Information (On the front page)
 * Terms of Service
