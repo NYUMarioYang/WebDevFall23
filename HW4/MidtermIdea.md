@@ -1,11 +1,12 @@
 **Idea: Create a website for work showcase and comission submission**
 ![Alt text](Images/gura.gif)
 * Live2D: A software that allows 2D models to be animated in real time. Its core is the combination a proprietary file and a json file that defines animations.
-* Hence the website will have less work but hopefully interactive
+* Hence the website will have less work but hopefully interactive 
+* The goal is to create a website that display work in a straightforward manner, and allow users to submit commision requests.
 
+----------------
 
 **Site Architecture**
-![Alt text](Images/website1.png)
 * Personal Bio & Contact Information (On the front page)
 * Terms of Service
 * Work Gallery
@@ -14,7 +15,10 @@
   * Regular Illustration
 * Commision Price List
 * Commision Submission Form
+![Alt text](Images/website1.png)
 
+----------------
+Per-Page Breakdown
 **Personal Bio & Contact Information**
 * Avatar with frame
 * Name
@@ -37,5 +41,11 @@
 
 **Commision Submission Form**
 ![Alt text](Images/website2.png)
-* A basic form to start commision process. (No backend at this point so just the look)
+* A basic form to start commision process.
 * Extra notes complementing the form
+
+----------------
+**References**
+https://mochipupu.carrd.co
+https://2wintails-comms.carrd.co/
+![Alt text](Images/Palette.png)
