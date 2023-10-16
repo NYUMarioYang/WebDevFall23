@@ -55,6 +55,7 @@ header {
   background-color: #FFFCF0;
   padding: 20px;
   padding-top: 60px;
+  padding-bottom: 60px;
   min-height: 100vh;
 }
 
@@ -136,16 +137,6 @@ nav{
   object-fit: cover;
 }
 
-.image-square-container {
-  border: 3px solid #C4DCA6;
-  object-fit: cover;
-  /* I really really don't like doing this */
-  /* Ideally I want to set width to 33% and somehow set height to make image into square, but I found no easy method... */
-  width: 17vw;
-  height: 17vw;
-
-}
-
 .flex-container-row {
   margin: 0 auto;
   display: flex;
@@ -155,6 +146,55 @@ nav{
   justify-content: space-around;
 }
 
+.gallery-container-row {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  padding-bottom: 30%;
+}
+
+
+.image-square-container {
+  width: 17vw;
+  height: 17vw;
+  position: relative;
+  display: inline-block;
+  margin: 5px; 
+  overflow: hidden;
+}
+
+.image-square-container:hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10; 
+
+  /* transition: all 0.5s ease-in-out; */
+}
+
+.image-inner {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-inner img {
+  /* experimented to be the best way to crop and fit in thumbnail mode*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  min-width: 100%;  
+  min-height: 100%;
+  object-fit: cover;
+}
+
 .width50 {
   width: 50%;
 }
@@ -162,7 +202,6 @@ nav{
 .info-container {  
   /* make sure it displays properly on mobile */
   width: 100%;
-
   padding: 20px;
 }
 
@@ -177,7 +216,7 @@ nav{
 }
 
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 768px) {
   .content-container {
     width: 100vw;
   }
