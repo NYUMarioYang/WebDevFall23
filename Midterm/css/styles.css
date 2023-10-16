@@ -1,0 +1,258 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: #AFDACB;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+a {
+  color: #6B4848;
+}
+
+p {
+  font-size: 1.5em;
+  line-height: 1.5em;
+  color: #6B4848;
+}
+
+h2 {
+  color: #6B4848;
+}
+
+h3{
+  color: #6B4848;
+}
+
+
+li {
+  font-size: 1.5em;
+  line-height: 1.5em;
+  color: #6B4848;
+
+  list-style-type: square;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.content-container {
+  width: 60%;
+  margin: 0 auto;
+  background-color: #FFFCF0;
+  padding: 20px;
+  padding-top: 60px;
+  min-height: 100vh;
+}
+
+
+header a {
+  text-decoration: none;
+}
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 30px;
+}
+
+nav{
+  width: 100%;
+}
+
+.diamond-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* rotate and rotate back the text to create diamond shape */
+.diamond-shape {
+  background: #AFDACB;
+  border: 3px solid #FAECBC;
+  transform: rotate(45deg);
+  
+  /* size scale with width of screen, might be unnecessary but looks cool */
+  /* also decide to cap the max size so it doesn't look absurd when screen width is too large */
+  width: calc(min(10vw, 150px));
+  height: calc(min(10vw, 150px));
+}
+
+.decorative-diamond-shape {
+  background: #AFDACB;
+  border: 2px solid #FAECBC;
+  transform: rotate(45deg);
+  width: calc(min(3vw, 100px));
+  height: calc(min(3vw, 100px));
+}
+
+.diamond-shape:hover {
+  background: #FAECBC;
+  border: 3px solid #AFDACB;
+  cursor: pointer;
+}
+
+.page-name {
+  color: #333;
+  display: table-cell;
+  transform: rotate(-45deg);
+  vertical-align: middle;
+  text-align: center;
+  font-size: calc(min(2vw, 30px));
+
+  width: calc(min(10vw, 150px));
+  height: calc(min(10vw, 150px));
+
+}
+
+.avatar-container{
+  margin: 1rem;
+}
+
+.avatar-circle {
+  border-radius: 50%;
+  border: 3px solid #C4DCA6;
+  width: 10vw;
+  height: 10vw;
+  object-fit: cover;
+}
+
+.image-square-container {
+  border: 3px solid #C4DCA6;
+  object-fit: cover;
+  /* I really really don't like doing this */
+  /* Ideally I want to set width to 33% and somehow set height to make image into square, but I found no easy method... */
+  width: 17vw;
+  height: 17vw;
+
+}
+
+.flex-container-row {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.width50 {
+  width: 50%;
+}
+
+.info-container {  
+  /* make sure it displays properly on mobile */
+  width: 100%;
+}
+
+.center-text {
+  text-align: center;
+  display: block;
+}
+
+
+.mobile-only {
+  display: none;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .content-container {
+    width: 100vw;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  p{
+    font-size: 1rem;
+    line-height: 1.5em;
+  }
+
+  li{
+    font-size: 1rem;
+    line-height: 1.5em;
+  }
+
+  .menu {
+    /* might not be the best practice since it's now detached from header? */
+    position: fixed;
+
+    flex-direction: column;
+
+    width: 40%;
+    right: 0;
+    height: 100vh;
+    top: 0;
+  }
+
+  .diamond-shape {
+    width: 10vh;
+    height: 10vh;
+  }
+
+  .page-name {
+    font-size: 2vh;
+    line-height: 1.5rem;
+    width: 10vh;
+    height: 10vh;
+  }
+
+  .avatar-circle {
+    width: 25vh;
+    height: 25vh;
+  }
+
+  .flex-container-mobile-column-override {
+    margin-left: 5%;
+    width: 50%;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .home-icon{
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 30px;
+  }
+
+  .diamond-home {
+    font-size: 1.5vh;
+    width: 7vh;
+    height: 7vh;
+  }
+
+  .decorative-diamond-shape {
+    background: #AFDACB;
+    border: 2px solid #FAECBC;
+    transform: rotate(45deg);
+    width: calc(min(3vh, 100px));
+    height: calc(min(3vh, 100px));
+  }
+
+}
