@@ -31,13 +31,13 @@ h3{
   color: #6B4848;
 }
 
-
 li {
   font-size: 1.5em;
   line-height: 1.5em;
   color: #6B4848;
 
   list-style-type: square;
+  margin-bottom: 10px;
 }
 
 header {
@@ -162,6 +162,8 @@ nav{
 .info-container {  
   /* make sure it displays properly on mobile */
   width: 100%;
+
+  padding: 20px;
 }
 
 .center-text {

@@ -2,57 +2,94 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Responsive Layouts</title>
-  <link rel="stylesheet" type="text/css" href="./css/styles.css" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <style>
-    .material-icons {
-      font-size: 2rem;
-      color: black;
-    }
-  </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Responsive Layouts</title>
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+        .material-icons {
+            font-size: 2rem;
+            color: black;
+        }
+    </style>
 </head>
 
 <body>
-  <div class="content-container">
+    <div class="content-container">
+        <header>
+            <nav class="desktop-only">
+                <ul class="menu">
+                    <li class="diamond-container"><a href="index.html">
+                            <div class="diamond-shape">
+                                <div class="page-name">Home Page</div>
+                            </div>
+                        </a></li>
+                    <li class="diamond-container"><a href="gallery.html">
+                            <div class="diamond-shape">
+                                <div class="page-name">Artwork Gallery</div>
+                            </div>
+                        </a></li>
+                    <li class="diamond-container"><a href="calculator.html">
+                            <div class="diamond-shape">
+                                <div class="page-name">Price Calculator</div>
+                            </div>
+                        </a></li>
+                    <li class="diamond-container"><a href="workflow.html">
+                            <div class="diamond-shape">
+                                <div class="page-name">Commission Workflow</div>
+                            </div>
+                        </a></li>
+                </ul>
+            </nav>
 
-    <header>
-        <nav class="desktop-only">
-          <ul class="menu">
-            <li class="diamond-container"><a href="index.html">
-                <div class="diamond-shape">
-                  <div class="page-name">Home Page</div>
-                </div>
-              </a></li>
-              <li class="diamond-container"><a href="gallery.html">
-                <div class="diamond-shape">
-                  <div class="page-name">Artwork Gallery</div>
-                </div>
-              </a></li>
-            <li class="diamond-container"><a href="calculator.html">
-                <div class="diamond-shape">
-                  <div class="page-name">Price Calculator</div>
-                </div>
-              </a></li>
-              <li class="diamond-container"><a href="workflow.html">
-                <div class="diamond-shape">
-                  <div class="page-name">Commission Workflow</div>
-                </div>
-              </a></li>
-          </ul>
-        </nav>
+            <div class="diamond-container home-icon mobile-only"><a href="index.html">
+                    <div class="diamond-shape diamond-home">
+                        <div class="page-name diamond-home">Home Page</div>
+                    </div>
+                </a></div>
+        </header>
 
-        <div class="diamond-container home-icon mobile-only"><a href="index.html">
-            <div class="diamond-shape diamond-home">
-              <div class="page-name diamond-home">Home Page</div>
+        <div class="info-container">
+            <div class="flex-container-row width50">
+                <div class="decorative-diamond-shape"></div>
+                <div class="decorative-diamond-shape"></div>
+                <div class="decorative-diamond-shape"></div>
             </div>
-          </a></div>
-      </header>
+            <h2 class="center-text">AGREEMENT</h2>
+            <ul>
+                <li>By commissioning me you are agreeing to my TOS.</li>
+                <li>I will not be held responsible for any misconception if you do not read my TOS thoroughly.</li>
+                <li>I reserve the right to refuse any order.</li>
+                <li>No rushed commissions.</li>
+                <li>I reserve the right to post my commissioned work to my social media for advertising and portfolio purposes, with respective credits to the client and/or artists involved.</li>
+                <li>I reserve the right to stream my commission progress. Please contact me beforehand if you want to keep it hidden.</li>
+                <li>I reserve the right to with draw from finishing a commission if problems occur that should make me uncomfortable. In that case, you might be issued a full, partial, or no refund depending on the progress made.</li>
+                <li>You can stream or make monetized content using the commissioned work.</li>
+                <li>Please credit me when you use the commissioned work.</li>
+                <li>Do not use the commissioned work in any blockchain-related technology including NFTs, cryptocurrency, etc.</li>
+                <li>Do not reproduce, redistribute or resell the commissioned work without my permission. Please contact me beforehand if you plan to resell my work.</li>
+            </ul>
+            <div class="flex-container-row width50">
+                <div class="decorative-diamond-shape"></div>
+                <div class="decorative-diamond-shape"></div>
+                <div class="decorative-diamond-shape"></div>
+            </div>
+            <h2 class="center-text">PAYMENT</h2>
+            <ul>
+                <li>Currency is in USD!</li>
+                <li>You can check my price list on the Price page.</li>
+                <li>Payment by PayPal only. I will create and send you PayPal invoices for payment.</li>
+                <li>PayPal transaction fees are not included in the price list.</li>
+                <li>As stated in the WORKFLOW part, you would need to pay 50% deposit to secure the spot.</li>
+                <li>If the commission has to be cancelled due to the client's cause, the deposit will be non-refundable.</li>
+                <li>If I cannot finish the commission due to my own cause, you'll be issued a full refund.</li>
+                <li>Once the work is finalized, refunds cannot be given.</li>
+                <li>Please note that you MUST plan the schedule of finishing your model art well! If you couldn't finish the model art at the scheduled time, my work schedule will be disrupted, and I might have to discuss with you whether to cancel (30% deposit will be refunded) or put off your commission. If your commission is put off, a postponement fee (20% of the total price) will be charged.</li>            
+            </ul>
+        </div>
 
-
-
+    </div>
 </body>
 
 </html>
