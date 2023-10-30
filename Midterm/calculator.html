@@ -1,3 +1,6 @@
+<!-- This html is modified quite a bit to make js less cumbersome -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +16,60 @@
             color: black;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // There types of price affectors:
+            // 1. Radio for half/full body
+            // 2. Sliders for stuff (value 0~9)
+            // 3. Checkboxes for stuff
+            const bodyOptions = document.querySelectorAll('input[name="body-option"]');
+            const sliders = document.querySelectorAll('.complexity-slider input[type="range"]');
+            const checkboxes = document.querySelectorAll('.checkbox-group input[type="checkbox"]');
+
+            // classic foreach + event listener
+            bodyOptions.forEach(option => {
+                option.addEventListener('change', updatePrice);
+            });
+
+            sliders.forEach(slider => {
+                slider.addEventListener('input', updatePrice);
+            });
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updatePrice);
+            });
+
+            // main function
+            function updatePrice() {
+                let total = 0;
+
+                // Parse from string to int
+                // https://www.w3schools.com/jsref/jsref_parseint.asp
+                bodyOptions.forEach(option => {
+                    if (option.checked) {
+                        total += parseInt(option.getAttribute('data-price'));
+                    }
+                });
+
+                sliders.forEach(slider => {
+                    total += (parseInt(slider.value) * parseInt(slider.getAttribute('data-price')));
+                });
+
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        total += parseInt(checkbox.getAttribute('data-price'));
+                    }
+                });
+
+                // hacky method introduced in class
+                document.getElementById('total-price').innerText = 'Total Price: $' + total;
+            }
+
+            // initial call to set a default price
+            updatePrice();
+        });
+    </script>
+
 </head>
 
 <body>
@@ -58,19 +115,21 @@
                     <label>Half/Fullbody base price (Rig Only)</label>
                     <div class="radio-group">
                         <label>
-                            <input type="radio" name="body-option" checked> Halfbody ($1300)
+                            <input type="radio" name="body-option" value="halfbody" data-price="1300" checked> Halfbody
+                            ($1300)
                         </label>
                         <label>
-                            <input type="radio" name="body-option"> Fullbody ($1800)
+                            <input type="radio" name="body-option" value="fullbody" data-price="1800"> Fullbody ($1800)
                         </label>
                     </div>
                 </div>
 
                 <div class="calculator-options">
                     <div class="complexity-slider">
-                        <label>How complex is your character's design?</label>
-                        <input type="range" min="1" max="10" value="1">
+                        <label>How complex is your character's design? (+$50 for each level)</label>
+                        <input type="range" min="0" max="9" value="0" data-price="50">
                         <div class="slider-labels">
+                            <span>0</span>
                             <span>1</span>
                             <span>2</span>
                             <span>3</span>
@@ -80,14 +139,14 @@
                             <span>7</span>
                             <span>8</span>
                             <span>9</span>
-                            <span>10</span>
                         </div>
                     </div>
 
                     <div class="complexity-slider">
                         <label>How many on/off item toggles? (~$30 each)</label>
-                        <input type="range" min="1" max="10" value="1">
+                        <input type="range" min="0" max="9" value="0" data-price="30">
                         <div class="slider-labels">
+                            <span>0</span>
                             <span>1</span>
                             <span>2</span>
                             <span>3</span>
@@ -97,14 +156,14 @@
                             <span>7</span>
                             <span>8</span>
                             <span>9</span>
-                            <span>10</span>
                         </div>
                     </div>
 
                     <div class="complexity-slider">
                         <label>How many expressions? (~$30 each)</label>
-                        <input type="range" min="1" max="10" value="1">
+                        <input type="range" min="0" max="9" value="0" data-price="30">
                         <div class="slider-labels">
+                            <span>0</span>
                             <span>1</span>
                             <span>2</span>
                             <span>3</span>
@@ -114,14 +173,14 @@
                             <span>7</span>
                             <span>8</span>
                             <span>9</span>
-                            <span>10</span>
                         </div>
                     </div>
 
                     <div class="complexity-slider">
-                        <label>How many Arm Poses/Animations? ($30~80 each)</label>
-                        <input type="range" min="1" max="10" value="1">
+                        <label>How many Arm Poses/Animations? ($60 each)</label>
+                        <input type="range" min="0" max="9" value="0" data-price="60">
                         <div class="slider-labels">
+                            <span>0</span>
                             <span>1</span>
                             <span>2</span>
                             <span>3</span>
@@ -131,22 +190,19 @@
                             <span>7</span>
                             <span>8</span>
                             <span>9</span>
-                            <span>10</span>
                         </div>
                     </div>
 
                 </div>
 
-                <!-- tried in https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_checkbox 
-                to check there is at least content sent. Gonna worry about if works with js for final-->
                 <div class="calculator-options">
                     <label>Extra Mouth Rigging? (iOS w/FaceID is required)</label>
                     <div class="checkbox-group">
                         <label>
-                            <input type="checkbox" name="vBridger" value="true"> VBridger ($200)
+                            <input type="checkbox" name="vBridger" value="true" data-price="200"> VBridger ($200)
                         </label>
                         <label>
-                            <input type="checkbox" name="tongueOut" value="true"> Tongue Out ($80)
+                            <input type="checkbox" name="tongueOut" value="true" data-price="80"> Tongue Out ($80)
                         </label>
                     </div>
                 </div>
@@ -155,21 +211,25 @@
                     <label>Extra Outfits/Hairstyles?</label>
                     <div class="checkbox-group">
                         <label>
-                            <input type="checkbox" name="extraOutfit" value="true"> Extra Outfit x 1 (~$700)
+                            <input type="checkbox" name="extraOutfit" value="true" data-price="700"> Extra Outfit x 1
+                            (~$700)
                         </label>
                         <label>
-                            <input type="checkbox" name="extraHairStyle" value="true"> Extra Hairstyle x 1 (~$400)
+                            <input type="checkbox" name="extraHairStyle" value="true" data-price="400"> Extra Hairstyle
+                            x 1 (~$400)
                         </label>
                         <label>
-                            <input type="checkbox" name="animal" value="true"> Animal Ears/Horns + Tail (~$40)
+                            <input type="checkbox" name="animal" value="true" data-price="40"> Animal Ears/Horns + Tail
+                            (~$40)
                         </label>
                         <label>
-                            <input type="checkbox" name="wings" value="true"> Wings (~$30)
+                            <input type="checkbox" name="wings" value="true" data-price="30"> Wings (~$30)
                         </label>
                     </div>
                 </div>
 
-                <h3 class="center-text">Total Price: $3400 (yes this doesn't work. Gonna work on it after js) </h3>
+                <!-- Set to the default price without any interaction with page -->
+                <h3 class="center-text" id="total-price">Total Price: $1300</h3>
 
             </section>
 

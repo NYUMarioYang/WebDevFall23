@@ -276,12 +276,13 @@ label {
 }
 
 .complexity-slider input[type="range"] {
-  width: 100%;
+  width: 104.5%;
   cursor: pointer;
   appearance: none;
   background-color: #d3d3d3;
   height: 6px;
   border-radius: 4px;
+  margin-left: -5px;
 }
 
 /* target the little circle on the slider */
