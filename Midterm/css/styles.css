@@ -272,11 +272,13 @@ label {
 }
 
 .complexity-slider {
-  margin-bottom: 20px;
+  margin-bottom: 0px;
+  position: relative;
+
 }
 
 .complexity-slider input[type="range"] {
-  width: 104.5%;
+  width: 101.5%;
   cursor: pointer;
   appearance: none;
   background-color: #d3d3d3;
@@ -313,6 +315,26 @@ label {
   font-size: 14px;
   font-weight: bold;
 }
+
+
+
+.slider-preview {
+  /* position: absolute; */
+  position: relative;
+  background-color: #333;
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  top: -100px;
+  left: -15px;
+  visibility: hidden;
+  transition: left 0.15s;  /* make moving the bubble a bit smoother */
+}
+
+
 
 .big-circle-image-container {
   width: 100%;

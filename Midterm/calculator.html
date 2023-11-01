@@ -1,13 +1,12 @@
 <!-- This html is modified quite a bit to make js less cumbersome -->
 
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Responsive Layouts</title>
+    <title>Price Calculator</title>
     <link rel="stylesheet" type="text/css" href="./css/styles.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <style>
@@ -18,33 +17,36 @@
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // There types of price affectors:
+            // stuff that affects final price:
             // 1. Radio for half/full body
             // 2. Sliders for stuff (value 0~9)
             // 3. Checkboxes for stuff
             const bodyOptions = document.querySelectorAll('input[name="body-option"]');
             const sliders = document.querySelectorAll('.complexity-slider input[type="range"]');
             const checkboxes = document.querySelectorAll('.checkbox-group input[type="checkbox"]');
+            
+            const sliderPreviews = document.querySelectorAll('.slider-preview');
+
+            const bubbleLeftOffset = -20;
+            const bubbleRightRangeOffset = -20;
 
             // classic foreach + event listener
             bodyOptions.forEach(option => {
                 option.addEventListener('change', updatePrice);
             });
-
+            // event refers to the current slider
             sliders.forEach(slider => {
-                slider.addEventListener('input', updatePrice);
+                slider.addEventListener('input', function (event) {
+                    updatePrice();
+                    showSliderPreview(event.target);
+                });
             });
-
             checkboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', updatePrice);
             });
 
-            // main function
             function updatePrice() {
                 let total = 0;
-
-                // Parse from string to int
-                // https://www.w3schools.com/jsref/jsref_parseint.asp
                 bodyOptions.forEach(option => {
                     if (option.checked) {
                         total += parseInt(option.getAttribute('data-price'));
@@ -61,13 +63,36 @@
                     }
                 });
 
-                // hacky method introduced in class
                 document.getElementById('total-price').innerText = 'Total Price: $' + total;
+            }
+
+            function showSliderPreview(slider) {
+                // best method I can think of now. At least better than slider.nextElementSibling.nextElementSibling
+                // tip for self: need to convert nodelist into array
+                const preview = sliderPreviews[Array.from(sliders).indexOf(slider)];
+                const percentage = (slider.value - slider.min) / (slider.max - slider.min);
+
+                // gets very messy here....... uhhhhh there must be a more elegant solution
+                // also this doesn't quite work for all window sizes
+                const leftValue = (bubbleLeftOffset + percentage * ((slider.offsetWidth) + bubbleRightRangeOffset)) + 'px';
+                
+                preview.innerText = parseInt(slider.value) * parseInt(slider.getAttribute('data-price'));
+                preview.style.left = leftValue;
+                preview.style.visibility = 'visible';
+
+                // console.log(preview.style.left);
+
+                slider.addEventListener('mouseleave', function () {
+                    preview.style.visibility = 'hidden';
+                });
             }
 
             // initial call to set a default price
             updatePrice();
         });
+
+
+
     </script>
 
 </head>
@@ -140,6 +165,7 @@
                             <span>8</span>
                             <span>9</span>
                         </div>
+                        <div class="slider-preview">0</div>
                     </div>
 
                     <div class="complexity-slider">
@@ -157,6 +183,7 @@
                             <span>8</span>
                             <span>9</span>
                         </div>
+                        <div class="slider-preview">0</div>
                     </div>
 
                     <div class="complexity-slider">
@@ -174,6 +201,7 @@
                             <span>8</span>
                             <span>9</span>
                         </div>
+                        <div class="slider-preview">0</div>
                     </div>
 
                     <div class="complexity-slider">
@@ -191,6 +219,7 @@
                             <span>8</span>
                             <span>9</span>
                         </div>
+                        <div class="slider-preview">0</div>
                     </div>
 
                 </div>
