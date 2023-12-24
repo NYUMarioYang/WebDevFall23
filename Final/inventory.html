@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
+  <script src="scripts/cat.js"></script>
+  <script src="scripts/furniture.js"></script>
+  <script src="scripts/sketch.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body class="p-0 m-0 border-0">
+  <div class="wrapper">
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <img src="images/Icon.png" alt="Logo" width="200" height="200">
+      </div>
+      <ul class="list-unstyled components">
+        <p class="title">Sleepy Kitten</p>
+        <li class="active">
+          <a class="navItem" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-user"></i> User ▼</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li>
+              <a href="#">Register</a>
+            </li>
+            <li>
+              <a href="#">Login</a>
+            </li>
+            <li>
+              <a href="dev.html"><i class="fas fa-code"></i> Secret Dev Page</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="navItem" href="index.html"><i class="fas fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a class="navItem" href="stats.html"><i class="fas fa-chart-line"></i> Sleep Data</a>
+        </li>
+        <li>
+          <a class="navItem" href="inventory.html"><i class="fas fa-boxes"></i> Inventory</a>
+        </li>
+      </ul>
+      
+    </nav>
+  </div>
+
+  <div id="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="text-center my-4">Inventory</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 col-sm-6 mb-4">
+          <img src="images/CatBrown.png" class="img-fluid" alt="Cat 1">
+        </div>
+      
+        <div class="col-md-3 col-sm-6 mb-4">
+          <img src="images/CatBW.png" class="img-fluid" alt="Cat 2">
+        </div>
+      
+        <div class="col-md-3 col-sm-6 mb-4">
+          <img src="images/CatDeer.png" class="img-fluid" alt="Cat 3">
+        </div>
+      
+        <div class="col-md-3 col-sm-6 mb-4">
+          <img src="images/CatOrange.png" class="img-fluid" alt="Cat 4">
+        </div>
+      </div>
+      
+
+      <!-- want to somehow make cards not seem that intrusive on big screen -->
+      <div class="row">
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card">
+            <img src="images/Icons/food (1).png" class="card-img-top" alt="Item Name">
+            <div class="card-body">
+              <h5 class="card-title text-center">Cherry</h5>
+              <p class="card-text text-center">*1</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card">
+            <img src="images/Icons/food (2).png" class="card-img-top" alt="Item Name">
+            <div class="card-body">
+              <h5 class="card-title text-center">Cookie</h5>
+              <p class="card-text text-center">*4</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card">
+            <img src="images/Icons/food (3).png" class="card-img-top" alt="Item Name">
+            <div class="card-body">
+              <h5 class="card-title text-center">Doughnut</h5>
+              <p class="card-text text-center">*2</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card">
+            <img src="images/Icons/food (4).png" class="card-img-top" alt="Item Name">
+            <div class="card-body">
+              <h5 class="card-title text-center">Fries</h5>
+              <p class="card-text text-center">*1</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card">
+            <img src="images/Icons/food (5).png" class="card-img-top" alt="Item Name">
+            <div class="card-body">
+              <h5 class="card-title text-center">Chicken</h5>
+              <p class="card-text text-center">*3</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card">
+            <img src="images/Icons/food (6).png" class="card-img-top" alt="Item Name">
+            <div class="card-body">
+              <h5 class="card-title text-center">Grape</h5>
+              <p class="card-text text-center">*2</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card">
+            <img src="images/Icons/food (7).png" class="card-img-top" alt="Item Name">
+            <div class="card-body">
+              <h5 class="card-title text-center">Hotdog</h5>
+              <p class="card-text text-center">*3</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card">
+            <img src="images/Icons/food (8).png" class="card-img-top" alt="Item Name">
+            <div class="card-body">
+              <h5 class="card-title text-center">Icecream</h5>
+              <p class="card-text text-center">*1</p>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+</body>
+
+</html>

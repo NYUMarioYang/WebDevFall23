@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sleepy Dev Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="container mt-3">
+        <a href="index.html" class="btn btn-secondary mb-3">Back to Home</a>
+    </div>
+
+
+    <div class="container">
+        <h1 class="mt-5">Sleepy Dev Page</h1>
+
+        <!-- Display Furniture -->
+        <h2 class="mt-4">Furniture</h2>
+        <div id="furniture"></div>
+
+        <!-- Display Items -->
+        <h2 class="mt-4">Sleep Data in Database</h2>
+        <div id="items"></div>
+
+        <!-- Add Item -->
+        <h2 class="mt-4">Add Sleep Data</h2>
+        <div class="form-group">
+            <input type="date" id="addDate" class="form-control" placeholder="Date">
+            <input type="time" id="addWentToBed" class="form-control" placeholder="Went to Bed">
+            <input type="text" id="addSleepDuration" class="form-control" placeholder="Sleep Duration (xHxM)">
+            <input type="number" id="addSleepAfter" class="form-control" placeholder="Minutes to Fall Asleep">
+            <input type="number" id="addSnoreTimes" class="form-control" placeholder="Snore Times">
+            <button onclick="addItem()" class="btn btn-primary mt-2">Add Sleep Data</button>
+        </div>
+
+        <!-- Modify Item -->
+        <h2 class="mt-4">Modify Sleep Data</h2>
+        <div class="form-group">
+            <input type="number" id="modifyId" class="form-control" placeholder="ID">
+            <input type="date" id="modifyDate" class="form-control" placeholder="New Date">
+            <input type="time" id="modifyWentToBed" class="form-control" placeholder="New Went to Bed">
+            <input type="text" id="modifySleepDuration" class="form-control" placeholder="New Sleep Duration (xHxM)">
+            <input type="number" id="modifySleepAfter" class="form-control" placeholder="New Minutes to Fall Asleep">
+            <input type="number" id="modifySnoreTimes" class="form-control" placeholder="New Snore Times">
+            <button onclick="modifyItem()" class="btn btn-secondary mt-2">Modify Sleep Data</button>
+        </div>
+
+        <!-- Remove Item -->
+        <h2 class="mt-4">Remove Sleep Data</h2>
+        <div class="form-group">
+            <input type="number" id="removeId" class="form-control" placeholder="ID">
+            <button onclick="removeItem()" class="btn btn-warning mt-2">Remove Sleep Data</button>
+        </div>
+
+        <h2 class="mt-4">Remove All Sleep Data</h2>
+        <button onclick="removeAllItems()" class="btn btn-danger">Remove All</button>
+
+
+    </div>
+
+    <script src="scripts/dev.js"></script>
+</body>
+
+</html>

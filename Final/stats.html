@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        .chart-container {
+            position: relative;
+            width: 70%;
+            float: left;
+        }
+
+        .sleep-info {
+            width: 30%;
+            float: left;
+            padding-left: 20px;
+        }
+
+        .chart-canvas {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .time-text {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .custom-list-group-item {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 80px;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .custom-list-group-item:hover {
+            background-color: #e2e6ea;
+        }
+    </style>
+    </style>
+</head>
+
+<body class="p-0 m-0 border-0">
+    <div class="wrapper">
+      <nav id="sidebar">
+        <div class="sidebar-header">
+          <img src="images/Icon.png" alt="Logo" width="200" height="200">
+        </div>
+        <ul class="list-unstyled components">
+          <p class="title">Sleepy Kitten</p>
+          <li class="active">
+            <a class="navItem" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-user"></i> User ▼</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+              <li>
+                <a href="#">Register</a>
+              </li>
+              <li>
+                <a href="#">Login</a>
+              </li>
+              <li>
+                <a href="dev.html"><i class="fas fa-code"></i> Secret Dev Page</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a class="navItem" href="index.html"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li>
+            <a class="navItem" href="stats.html"><i class="fas fa-chart-line"></i> Sleep Data</a>
+          </li>
+          <li>
+            <a class="navItem" href="inventory.html"><i class="fas fa-boxes"></i> Inventory</a>
+          </li>
+        </ul>
+        
+      </nav>
+    </div>
+
+    <div id="content">
+        <div class="row justify-content-center mt-5">
+            <button id="prevDate" class="btn btn-primary mx-2 mb-4">← Previous Day</button>
+            <button id="nextDate" class="btn btn-primary mx-2 mb-4">Next Day →</button>
+        </div>
+
+        <div class="row justify-content-center my-5">
+            <div class="col-12 col-lg-8">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">Sleep Summary for <span id="currentDate">[Date]</span></h3>
+                        <div class="chart-container my-4">
+                            <canvas id="progressChart" class="chart-canvas"></canvas>
+                            <div class="time-text" id="timeText"><strong id="sleepDuration">[Sleep Duration]</strong>
+                            </div>
+
+                        </div>
+                        <div class="sleep-info">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item custom-list-group-item">Went to bed: <strong
+                                        id="wentToBed">[Went to Bed]</strong></li>
+                                <li class="list-group-item custom-list-group-item">Time to fall asleep: <strong
+                                        id="timeToFallAsleep">[Time to Fall Asleep]</strong> minutes</li>
+                                <li class="list-group-item custom-list-group-item">Snored: <strong
+                                        id="snoreTimes">[Snore Times]</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script>
+        const ctx = document.getElementById("progressChart").getContext('2d');
+        const progressChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [360, 150],
+                    backgroundColor: ["#007bff", "#e9ecef"],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                cutoutPercentage: 80,
+                rotation: -Math.PI / 2,
+                circumference: 2 * Math.PI,
+                tooltips: { enabled: false },
+                hover: { mode: null },
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+
+
+        let currentDateIndex = 0;
+        let sleepData = [];
+
+        function updateDateNavigation() {
+            if (currentDateIndex <= 0) {
+                document.getElementById('prevDate').disabled = true;
+            } else {
+                document.getElementById('prevDate').disabled = false;
+            }
+
+            if (currentDateIndex >= sleepData.length - 1) {
+                document.getElementById('nextDate').disabled = true;
+            } else {
+                document.getElementById('nextDate').disabled = false;
+            }
+        }
+
+        function changeDate(step) {
+            currentDateIndex += step;
+            if (currentDateIndex < 0) currentDateIndex = 0;
+            if (currentDateIndex >= sleepData.length) currentDateIndex = sleepData.length - 1;
+            displayCurrentDateData();
+            updateDateNavigation();
+        }
+
+        function displayCurrentDateData() {
+            if (sleepData.length > 0 && currentDateIndex < sleepData.length) {
+                const currentData = sleepData[currentDateIndex];
+
+                document.getElementById('currentDate').innerText = currentData.date;
+                document.getElementById('wentToBed').innerText = currentData.wentToBed;
+                document.getElementById('sleepDuration').innerText = currentData.sleepDuration;
+                document.getElementById('timeToFallAsleep').innerText = currentData.sleepAfter;
+                document.getElementById('snoreTimes').innerText = currentData.snoreTimes;
+
+                const sleepDuration = parseSleepDuration(currentData.sleepDuration);
+                const sleepPercentage = calculateSleepPercentage(sleepDuration);
+                updateChart(sleepPercentage);
+            }
+        }
+
+        function parseSleepDuration(duration) {
+            const parts = duration.split('H');
+            const hours = parseInt(parts[0]);
+            const minutes = parseInt(parts[1].replace('M', ''));
+            return hours * 60 + minutes;
+        }
+
+        function calculateSleepPercentage(minutes) {
+            const maxMinutes = 8 * 60 + 30; 
+            return (minutes / maxMinutes) * 100;
+        }
+
+        function updateChart(percentage) {
+            progressChart.data.datasets[0].data = [percentage, 100 - percentage];
+            progressChart.update();
+        }
+
+        function sendHttpRequest(method, url, data) {
+            const options = {
+                method: method,
+                headers: data ? { 'Content-Type': 'application/json' } : {}
+            };
+
+            if (data) {
+                options.body = JSON.stringify(data);
+            }
+
+            return fetch(url, options).then(handleResponse);
+        }
+
+        function handleResponse(response) {
+            if (response.status >= 400) {
+                return response.json().then(errorData => {
+                    const error = new Error('Something went wrong!');
+                    error.data = errorData;
+                    throw error;
+                });
+            }
+            return response.json();
+        }
+
+        function logError(error) {
+            console.error(error);
+        }
+
+        function overrideFetchItems() {
+            sendHttpRequest('GET', 'http://localhost:3004/dailySleepData')
+                .then(data => {
+                    sleepData = data;
+                    displayCurrentDateData();
+                    updateDateNavigation();
+                })
+                .catch(logError);
+        }
+
+        document.getElementById('prevDate').addEventListener('click', () => changeDate(-1));
+        document.getElementById('nextDate').addEventListener('click', () => changeDate(1));
+
+        document.addEventListener('DOMContentLoaded', function () {
+            overrideFetchItems();
+        });
+
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+</body>
+
+</html>

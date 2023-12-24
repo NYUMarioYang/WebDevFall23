@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
+  <script src="scripts/cat.js"></script>
+  <script src="scripts/furniture.js"></script>
+  <script src="scripts/sketch.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body class="p-0 m-0 border-0">
+  <div class="wrapper">
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <img src="images/Icon.png" alt="Logo" width="200" height="200">
+      </div>
+      <ul class="list-unstyled components">
+        <p class="title">Sleepy Kitten</p>
+        <li class="active">
+          <a class="navItem" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-user"></i> User ▼</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li>
+              <a href="#">Register</a>
+            </li>
+            <li>
+              <a href="#">Login</a>
+            </li>
+            <li>
+              <a href="dev.html"><i class="fas fa-code"></i> Secret Dev Page</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="navItem" href="index.html"><i class="fas fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a class="navItem" href="stats.html"><i class="fas fa-chart-line"></i> Sleep Data</a>
+        </li>
+        <li>
+          <a class="navItem" href="inventory.html"><i class="fas fa-boxes"></i> Inventory</a>
+        </li>
+      </ul>
+      
+    </nav>
+  </div>
+
+  <div id="content">
+    <div id="canvasContainer" class="scale-element"></div>
+  </div>
+
+  <script>
+    var range = 1 / 700;
+    var vw = range * Math.min(window.innerWidth, window.innerHeight);
+    document.documentElement.style.setProperty('--vw-scale', `${vw}`);
+    window.addEventListener('resize', () => {
+      document.documentElement.style.setProperty('--vw-scale', `${range * Math.min(window.innerWidth, window.innerHeight)}`);
+    });
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+</body>
+
+</html>

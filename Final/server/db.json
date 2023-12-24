@@ -1,0 +1,131 @@
+{
+  "dailySleepData": [
+    {
+      "date": "2023-12-13",
+      "wentToBed": "20:35",
+      "sleepDuration": "8H25M",
+      "sleepAfter": "20",
+      "snoreTimes": "1",
+      "id": 1
+    },
+    {
+      "date": "2023-12-13",
+      "wentToBed": "18:44",
+      "sleepDuration": "5H30M",
+      "sleepAfter": "30",
+      "snoreTimes": "2",
+      "id": 2
+    },
+    {
+      "date": "2023-12-14",
+      "wentToBed": "20:18",
+      "sleepDuration": "6H50M",
+      "sleepAfter": "20",
+      "snoreTimes": "3",
+      "id": 3
+    },
+    {
+      "date": "2023-12-15",
+      "wentToBed": "18:44",
+      "sleepDuration": "5H30M",
+      "sleepAfter": "30",
+      "snoreTimes": "2",
+      "id": 4
+    },
+    {
+      "date": "2023-12-16",
+      "wentToBed": "18:44",
+      "sleepDuration": "7H40M",
+      "sleepAfter": "30",
+      "snoreTimes": "2",
+      "id": 5
+    },
+    {
+      "date": "2023-12-17",
+      "wentToBed": "18:44",
+      "sleepDuration": "5H30M",
+      "sleepAfter": "30",
+      "snoreTimes": "2",
+      "id": 6
+    },
+    {
+      "date": "2023-12-18",
+      "wentToBed": "18:44",
+      "sleepDuration": "5H30M",
+      "sleepAfter": "30",
+      "snoreTimes": "2",
+      "id": 7
+    },
+    {
+      "date": "2023-12-19",
+      "wentToBed": "18:44",
+      "sleepDuration": "5H30M",
+      "sleepAfter": "30",
+      "snoreTimes": "2",
+      "id": 8
+    },
+    {
+      "date": "2023-12-20",
+      "wentToBed": "18:44",
+      "sleepDuration": "5H30M",
+      "sleepAfter": "30",
+      "snoreTimes": "2",
+      "id": 9
+    }
+  ],
+  "furnitures": [
+    {
+      "name": "Sofa",
+      "enabled": false,
+      "xPos": 500,
+      "yPos": 400,
+      "id": 1
+    },
+    {
+      "name": "Quaso",
+      "enabled": false,
+      "xPos": 700,
+      "yPos": 500,
+      "id": 2
+    },
+    {
+      "name": "Pillow",
+      "enabled": false,
+      "xPos": 400,
+      "yPos": 200,
+      "id": 3
+    },
+    {
+      "name": "Pad",
+      "enabled": true,
+      "xPos": 740,
+      "yPos": 300,
+      "id": 4
+    },
+    {
+      "name": "Ladder",
+      "enabled": true,
+      "xPos": 350,
+      "yPos": 520,
+      "id": 5
+    }
+  ],
+  "cats": [
+    {
+      "name": "CatBW",
+      "id": 1
+    },
+    {
+      "name": "CatBrown",
+      "id": 2
+    },
+    {
+      "name": "CatDeer",
+      "id": 3
+    },
+    {
+      "name": "CatOrange",
+      "id": 4
+    }
+  ]
+}
